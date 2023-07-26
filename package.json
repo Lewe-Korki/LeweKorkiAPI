@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "build": "webpack",
-    "start:dev": "nodemon",
+    "start:dev": "set NODE_TLS_REJECT_UNAUTHORIZED='0' && nodemon",
     "start:prod": "node dist/build",
     "test": "jest",
     "test:cov": "jest --coverage",
@@ -60,6 +60,7 @@
     "@types/mongoose": "^5.11.97",
     "@types/morgan": "^1.9.4",
     "@types/node": "^20.4.4",
+    "@types/nodemailer": "^6.4.9",
     "@types/passport": "^1.0.12",
     "@types/validator": "^13.7.17",
     "@typescript-eslint/eslint-plugin": "^6.2.0",

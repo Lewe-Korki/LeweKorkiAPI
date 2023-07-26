@@ -1,4 +1,4 @@
-export interface Request {
+export interface ContactRequest {
   subject: string
   place: string
   name: string

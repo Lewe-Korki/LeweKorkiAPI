@@ -1,17 +1,11 @@
 import { Request, Response } from 'express'
 
 import ContactService from '@/services/contact'
-import { Request as RequestType } from '@/types/contact'
+import { ContactRequest } from '@/types/contact'
 
 class ContactController {
-  service: ContactService
-
-  constructor() {
-    this.service = new ContactService()
-  }
-
   async sendRequest(req: Request, res: Response) {
-    const data: RequestType = {
+    const data: ContactRequest = {
       subject: req.body.subject,
       place: req.body.place,
       level: req.body.level,
@@ -20,8 +14,12 @@ class ContactController {
       text: req.body.text,
     }
 
-    // const query = await this.service.sendRequest(data)
-    res.status(201).json(data)
+    try {
+      await ContactService.sendRequest(data)
+      res.status(201).json(data)
+    } catch (e) {
+      res.status(422).send(e.message)
+    }
   }
 }
 
