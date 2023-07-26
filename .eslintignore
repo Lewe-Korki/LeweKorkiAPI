@@ -7,4 +7,5 @@ tests/e2e/videos
 
 src/static
 .env
+webpack.config.js
 secret.txt

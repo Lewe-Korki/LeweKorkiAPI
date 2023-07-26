@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 const nodeExternals = require('webpack-node-externals')
 
 let mode = process.env.MODE
@@ -15,12 +15,10 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/,
-        use: [
-          'ts-loader',
-        ],
+        use: ['ts-loader'],
         exclude: /node_modules/,
-      }
-    ]
+      },
+    ],
   },
   resolve: {
     alias: {
@@ -33,5 +31,5 @@ module.exports = {
     filename: 'build.js',
     path: path.resolve(__dirname, 'dist'),
   },
-  externals: [ nodeExternals() ]
+  externals: [nodeExternals()],
 }
