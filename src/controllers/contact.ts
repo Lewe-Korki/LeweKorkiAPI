@@ -15,8 +15,8 @@ class ContactController {
     }
 
     try {
-      await ContactService.sendRequest(data)
-      res.status(201).json(data)
+      const info = await ContactService.sendRequest(data)
+      res.status(201).send(info)
     } catch (e) {
       res.status(422).send(e.message)
     }

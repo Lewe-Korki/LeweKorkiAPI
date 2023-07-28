@@ -1,6 +1,7 @@
 import { ContactRequest } from '@/types/contact'
 import { Email_Services } from '@/email/emails'
 import EmailConfig from '@/config/emails'
+import { ContactRequestTemplate } from '@/email/templates'
 //
 // import RequestModel from '@/database/models/form'
 
@@ -11,13 +12,13 @@ class ContactService {
         from: EmailConfig.services.user,
         to: EmailConfig.contact.user,
         subject: 'Zgłoszenie na korki',
-        text: JSON.stringify(data),
+        html: ContactRequestTemplate(data),
       },
       function (error, info) {
         if (error) {
-          console.log(error)
+          throw new Error(error.message)
         } else {
-          console.log('Email sent ' + info.response)
+          return info
         }
       }
     )
