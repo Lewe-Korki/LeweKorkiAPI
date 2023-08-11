@@ -29,6 +29,17 @@ export interface User {
   sciences?: Science[]
 
   isTutor: boolean
+
+  researchInterests?: ResearchInterest[]
+
+  students: string[]
+}
+
+export interface ResearchInterest {
+  science: string
+  level: number
+  img: string
+  description?: string
 }
 
 export interface Major {
@@ -93,6 +104,7 @@ export interface UserQueryResponse {
   aboutme?: string
   icons?: string[]
   majors?: Major[]
+  researchInterests?: ResearchInterest[]
   sciences?: Science[]
 
   isTutor: boolean

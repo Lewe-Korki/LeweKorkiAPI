@@ -1,6 +1,6 @@
 // import bcrypt from 'bcrypt'
 
-import UserModel from '@/database/models/users/user'
+import UserModel from '@/database/models/user'
 // import AuthService from './auth'
 import { UserQueryResponse } from '@/types/user'
 
@@ -11,7 +11,7 @@ class UsersService {
   // this.authService = new AuthService()
   // }
 
-  getUserInfo = async (login: string): Promise<UserQueryResponse | null> => {
+  async getUserInfo(login: string): Promise<UserQueryResponse | null> {
     const user = await UserModel.findOne({ login: login })
     if (user) {
       const safeUserData: UserQueryResponse = {
@@ -30,6 +30,7 @@ class UsersService {
         icons: user.icons,
         majors: user.majors,
         sciences: user.sciences,
+        researchInterests: user.researchInterests,
 
         isTutor: user.isTutor,
       }

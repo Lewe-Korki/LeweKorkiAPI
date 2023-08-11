@@ -6,7 +6,7 @@ import {
   Severity,
 } from '@typegoose/typegoose'
 
-import { Major, Science } from '@/types/user'
+import { Major, ResearchInterest, Science } from '@/types/user'
 
 @modelOptions({ options: { allowMixed: Severity.ALLOW } })
 class User {
@@ -60,6 +60,12 @@ class User {
 
   @prop()
   public isTutor: boolean
+
+  @prop()
+  public researchInterests: ResearchInterest[]
+
+  @prop()
+  public students: string[]
 }
 
 const UserModel = getModelForClass(User)

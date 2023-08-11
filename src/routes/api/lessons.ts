@@ -1,9 +1,9 @@
 import { Router } from 'express'
 
-import UsersControllers from '@/controllers/users'
-const UsersRouter: Router = Router()
+import LessonsControllers from '@/controllers/lessons'
+const LessonsRouter: Router = Router()
 
-UsersRouter.get('/:login', UsersControllers.getUserInfo)
+LessonsRouter.get('/:login', LessonsControllers.getLessons)
 // .put('/:login/desc', UsersControllers.changeDescription)
 // .put('/:login/interests', UsersControllers.changeInterests)
 // .put('/:login/education', UsersControllers.changeEducation)
@@ -12,4 +12,4 @@ UsersRouter.get('/:login', UsersControllers.getUserInfo)
 // .put('/:login/dateofbirth', UsersControllers.changeDateOfBirth)
 // .put('/:login/password', UsersControllers.changePassword)
 
-export default UsersRouter
+export default LessonsRouter

@@ -25,7 +25,7 @@ export function UseAuthorization(): MethodDecorator {
               config.jwt.secret
             ) as jwt.JwtPayload
 
-            if (undecoded.user.Login == login) {
+            if (undecoded.user.login == login) {
               return original.apply(this, args)
             } else {
               throw new Error()

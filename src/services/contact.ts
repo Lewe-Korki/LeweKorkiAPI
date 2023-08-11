@@ -6,7 +6,7 @@ import { ContactRequestTemplate } from '@/email/templates'
 // import RequestModel from '@/database/models/form'
 
 class ContactService {
-  sendRequest = async (data: ContactRequest) => {
+  async sendRequest(data: ContactRequest) {
     Email_Services.sendMail(
       {
         from: EmailConfig.services.user,

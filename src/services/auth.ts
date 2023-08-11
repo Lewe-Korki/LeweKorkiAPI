@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import config from '@/config/auth'
-import UserModel from '@/database/models/users/user'
+import UserModel from '@/database/models/user'
 import { UserLoginReq } from '@/types/auth'
 
 class AuthService {
@@ -35,7 +35,7 @@ class AuthService {
   //   }
   // }
 
-  Login = async (loginReq: UserLoginReq) => {
+  async Login(loginReq: UserLoginReq) {
     const user = await UserModel.findOne({
       login: loginReq.login,
     })
