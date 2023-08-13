@@ -1,10 +1,10 @@
 import { Router } from 'express'
-import AuthControllers from '@/controllers/auth'
+import AuthController from '@/controllers/auth'
 
 const UsersRouter: Router = Router()
 
-UsersRouter.post('/login', AuthControllers.Login)
+UsersRouter.post('/login', AuthController.Login)
   // .post('/register', AuthControllers.Register)
-  .get('/logout', AuthControllers.Logout)
+  .get('/logout', AuthController.Logout)
 
 export default UsersRouter

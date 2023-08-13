@@ -1,6 +1,6 @@
 import LessonModel from '@/database/models/lesson'
 import UserModel from '@/database/models/user'
-import { Lesson } from '@/types/lesson'
+import { Lesson, Note } from '@/types/lesson'
 
 class LessonsService {
   async getLessons(login: string): Promise<Lesson[] | null> {
@@ -10,6 +10,18 @@ class LessonsService {
       ? await LessonModel.find({ tutor: login })
       : await LessonModel.find({ student: login })
     return lessons
+  }
+
+  async saveNote(note: Note, _id: string): Promise<void> {
+    const lesson = await LessonModel.findOne({ _id })
+    lesson.notes.push(note)
+    lesson.save()
+  }
+
+  async removeNote(date: string, _id: string): Promise<void> {
+    const lesson = await LessonModel.findOne({ _id })
+    lesson.notes = lesson.notes.filter((e) => e.date != date)
+    lesson.save()
   }
 }
 

@@ -1,8 +1,8 @@
 import { Router } from 'express'
-import ContactControllers from '@/controllers/contact'
+import ContactController from '@/controllers/contact'
 
 const ContactRouter: Router = Router()
 
-ContactRouter.post('/request', ContactControllers.sendRequest)
+ContactRouter.post('/request', ContactController.sendRequest)
 
 export default ContactRouter

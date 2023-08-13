@@ -14,6 +14,28 @@ class LessonsController {
       res.status(400).send(err)
     }
   }
+
+  async saveNote(req: Request, res: Response) {
+    const id = req.params.id
+    const note = { content: req.body.content, date: req.body.date }
+    try {
+      await LessonsService.saveNote(note, id)
+      res.status(204).send('done')
+    } catch (err) {
+      res.status(400).send(err)
+    }
+  }
+
+  async removeNote(req: Request, res: Response) {
+    const id = req.params.id
+    const date = req.params.date
+    try {
+      await LessonsService.removeNote(date, id)
+      res.status(204).send('done')
+    } catch (err) {
+      res.status(400).send(err)
+    }
+  }
 }
 
 export default new LessonsController()

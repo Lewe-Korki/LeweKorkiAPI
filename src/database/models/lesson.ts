@@ -5,7 +5,7 @@ import {
   Severity,
 } from '@typegoose/typegoose'
 
-// import { Major, ResearchInterest, Science } from '@/types/user'
+import { Note } from '@/types/lesson'
 
 @modelOptions({ options: { allowMixed: Severity.ALLOW } })
 class Lesson {
@@ -29,6 +29,9 @@ class Lesson {
 
   @prop({ required: true })
   public note: string
+
+  @prop({ required: true })
+  public notes: Note[]
 }
 
 const LessonModel = getModelForClass(Lesson)

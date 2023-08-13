@@ -1,15 +1,15 @@
 import { Router } from 'express'
 
-import UsersControllers from '@/controllers/users'
+import UsersController from '@/controllers/users'
 const UsersRouter: Router = Router()
 
-UsersRouter.get('/:login', UsersControllers.getUserInfo)
-// .put('/:login/desc', UsersControllers.changeDescription)
-// .put('/:login/interests', UsersControllers.changeInterests)
-// .put('/:login/education', UsersControllers.changeEducation)
-// .put('/:login/name', UsersControllers.changeName)
-// .put('/:login/email', UsersControllers.changeEmail)
-// .put('/:login/dateofbirth', UsersControllers.changeDateOfBirth)
-// .put('/:login/password', UsersControllers.changePassword)
+UsersRouter.get('/:login', UsersController.getUserInfo)
+// .put('/:login/desc', UsersController.changeDescription)
+// .put('/:login/interests', UsersController.changeInterests)
+// .put('/:login/education', UsersController.changeEducation)
+// .put('/:login/name', UsersController.changeName)
+// .put('/:login/email', UsersController.changeEmail)
+// .put('/:login/dateofbirth', UsersController.changeDateOfBirth)
+// .put('/:login/password', UsersController.changePassword)
 
 export default UsersRouter

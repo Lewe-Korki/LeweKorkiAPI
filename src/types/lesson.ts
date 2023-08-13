@@ -6,4 +6,10 @@ export interface Lesson {
   where: string
   level: string
   note: string
+  notes: Note[]
+}
+
+export interface Note {
+  content: string
+  date: string | Date
 }
