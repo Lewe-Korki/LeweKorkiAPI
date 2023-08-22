@@ -1,4 +1,4 @@
-import { ContactRequest } from '@/types/contact'
+import { ContactRequest, WorkRequest } from '@/types/contact'
 
 const CSS = `
 
@@ -43,7 +43,7 @@ export const ContactRequestTemplate = (data: ContactRequest) => `
   </head>
   <body>
     <div></div>
-    <h1>Zgłoszenie o udzielenie korepetycji - ${data.name}</h>
+    <h1>Zgłoszenie o udzielenie korepetycji - ${data.name}</h1>
     
     <h2>Przedmiot: </h2>
     <div>${data.subject}</div>
@@ -52,7 +52,7 @@ export const ContactRequestTemplate = (data: ContactRequest) => `
     <div>${data.place}</div>
     
     <h2>Poziom: </h2>
-    <div>${data.name}</div>
+    <div>${data.level}</div>
       
     <p> ${data.text} </p>
     
@@ -60,4 +60,40 @@ export const ContactRequestTemplate = (data: ContactRequest) => `
   </body>
 </html>
 
+`
+export const WorkRequestTemplate = (data: WorkRequest) => `
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <style>    
+      ${CSS}
+    </style>
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script>
+  </head>
+  <body>
+    <div></div>
+    <h1>Zgłoszenie o pracę - ${data.name}</h1>
+    
+    <h2>Przedmioty: </h2>
+    <div>${data.sciences.join(' ')}</div>
+    <div>${data.target}</div>
+    
+    <h2>Miejsce: </h2>
+    <div>${data.city}</div>
+    
+    <h2>Urodzony: </h2>
+    <div>${data.dob}</div>
+      
+    <p> ${data.text} </p>
+    
+    <h2>Kontakt</h2>
+    <p>Email: ${data.email}, Telefon: ${data.phone}, FB: ${data.fb_link}</p> 
+  </body>
+</html>
 `

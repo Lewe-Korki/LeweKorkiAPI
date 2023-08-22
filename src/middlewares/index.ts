@@ -13,6 +13,8 @@ const corsOptions: CorsOptions = {
     'http://localhost:80',
     'http://localhost:2137',
     'https://lewekorki.pl',
+    'https://db.lewekorki.pl',
+    'http://127.0.0.1:5500',
   ],
   credentials: true,
 }
